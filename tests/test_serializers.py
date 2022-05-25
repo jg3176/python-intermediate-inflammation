@@ -22,11 +22,3 @@ def test_patients_json_serializer():
     # Check that we've got the same data back
     for patient_new, patient in zip(patients_new, patients):
         assert patient_new == patient
-        # assert patient_new.name == patient.name
-
-        # for obs_new, obs in zip(
-        # patient_new.observations,
-        # patient.observations
-    # ):
-        # assert obs_new.day == obs.day
-        # assert obs_new.value == obs.value

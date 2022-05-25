@@ -21,7 +21,13 @@ class Observation:
 
     def __eq__(self, other):
         # Fix later
-        return True
+        if isinstance(other, type(self)):
+            if self.day == other.day and self.value == self.value:
+                return True
+            else:
+                return False
+        else:
+            return False
 
 
 class Person:
@@ -51,7 +57,18 @@ class Patient(Person):
 
     def __eq__(self, other):
         # Fix later
-        return True
+        if self.observations is None or other.observations is None:
+            return False
+        if isinstance(other, type(self)):
+            if self.name != other.name:
+                return False
+            for temp_self_obv, temp_other_obv in zip(
+                self.observations, other.observations
+            ):
+                if temp_self_obv == temp_other_obv:
+                    return True
+                else:
+                    return False
 
     def add_observation(self, value, day=None):
         if day is None:
